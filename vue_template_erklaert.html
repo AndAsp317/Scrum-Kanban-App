@@ -1,0 +1,73 @@
+<!-- index.html Vue Template mit Erklärungen -->
+<div id="app" class="container py-4">
+  <!-- Hauptüberschrift -->
+  <h1 class="mb-4 text-center">🗂️ Kanban Board mit Nutzer, Rollen & Farben</h1>
+
+  <!-- Nutzer-Hinzufügen-Formular -->
+  <div class="mb-3 d-flex gap-2">
+    <!-- Eingabefeld für Nutzernamen -->
+    <input v-model="state.newUser" placeholder="Nutzername" class="form-control" />
+
+    <!-- Rollen-Auswahl -->
+    <select v-model="state.selectedRole" class="form-select">
+      <option disabled value="">Rolle wählen</option>
+      <option>Product-Owner</option>
+      <option>Entwickler</option>
+      <option>Scrum-Master</option>
+    </select>
+
+    <!-- Button zum Hinzufügen des Nutzers -->
+    <button @click="addUser" class="btn btn-primary">Nutzer hinzufügen</button>
+  </div>
+
+  <!-- Aufgaben-Hinzufügen-Formular -->
+  <div class="mb-4 d-flex gap-2">
+    <!-- Eingabe der Aufgabenbeschreibung -->
+    <input v-model="state.newTask" placeholder="Aufgabe" class="form-control" />
+
+    <!-- Auswahl des verantwortlichen Nutzers -->
+    <select v-model="state.selectedUser" class="form-select">
+      <option disabled value="">Verantwortlich</option>
+      <option v-for="user in state.users" :key="user.name" :value="user.name">{{ user.name }}</option>
+    </select>
+
+    <!-- Deadline der Aufgabe -->
+    <input type="date" v-model="state.selectedDate" class="form-control" />
+
+    <!-- Button zum Hinzufügen in die Backlog-Spalte -->
+    <button @click="addTask('backlog')" class="btn btn-success">Zu Backlog</button>
+  </div>
+
+  <!-- Kanban-Board mit Spalten -->
+  <div class="kanban-board">
+    <!-- Jede Spalte einzeln durchlaufen -->
+    <div class="kanban-column" v-for="(tasks, column) in state.columns" :key="column">
+
+      <!-- Spaltentitel mit Übersetzung aus columnNames -->
+      <h3>{{ columnNames[column] }}</h3>
+
+      <!-- Aufgabenliste in dieser Spalte -->
+      <ul class="kanban-list">
+
+        <!-- Einzelne Aufgabe anzeigen -->
+        <li v-for="(task, index) in tasks" :key="index" class="kanban-item">
+
+          <!-- Aufgabeninhalt mit Nutzer und Deadline -->
+          <span>
+            <!-- Farbpunkt je nach Rolle -->
+            <span :style="{ backgroundColor: getRoleColor(findUser(task.user)?.role) }" class="role-badge"></span>
+            {{ task.text }} – {{ task.user }} ({{ task.deadline }})
+          </span>
+
+          <!-- Buttons zum Verschieben und Löschen -->
+          <div>
+            <!-- Nach rechts verschieben -->
+            <button class="btn btn-sm btn-outline-primary" @click="moveTask(column, nextColumn(column), index)">➡️</button>
+            <!-- Löschen -->
+            <button class="btn btn-sm btn-outline-danger" @click="deleteTask(column, index)">🗑️</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

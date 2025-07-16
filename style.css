@@ -1,0 +1,96 @@
+body {
+  background: #f0f4f8;                      /* Heller Hintergrund für die gesamte Seite */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* Moderne, gut lesbare Schriftart */
+  padding: 1rem;                            /* Innenabstand der Seite (z. B. von Rand zu Inhalt) */
+  min-height: 100vh;                        /* Mindestens Höhe des Viewports, für volle Seitengröße */
+}
+
+h1 {
+  font-weight: 700;                         /* Überschrift fett dargestellt */
+  color: #333;                              /* Dunkles Grau für bessere Lesbarkeit */
+}
+
+.kanban-board {
+  display: flex;                            /* Flexbox-Layout für horizontale Spaltenanordnung */
+  gap: 1rem;                                /* Abstand zwischen den Spalten */
+  flex-wrap: nowrap;                        /* Spalten sollen nicht umbrechen */
+  overflow-x: auto;                         /* Horizontal scrollen, falls Spalten breiter als Bildschirm */
+  padding-bottom: 1rem;                     /* Platz unterhalb für eventuelle Scrollbar */
+  -webkit-overflow-scrolling: touch;        /* Glattes Scrollen auf mobilen Geräten (iOS) */
+  justify-content: flex-start;              /* Spalten starten am linken Rand */
+}
+
+.kanban-column {
+  background: white;                        /* Weißer Hintergrund für jede Spalte */
+  border-radius: 8px;                       /* Abgerundete Ecken */
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);    /* Leichter Schatten für Kartenstil */
+  flex: 0 0 300px;                          /* Feste Breite von 300px */
+  min-height: 300px;                        /* Mindesthöhe der Spalte */
+  padding: 1rem;                            /* Innenabstand */
+  display: flex;                            /* Flexbox für vertikale Anordnung */
+  flex-direction: column;                   /* Spalteninhalt vertikal anordnen */
+}
+
+.kanban-column h3 {
+  border-bottom: 2px solid #007bff;         /* Blaue Linie unter dem Spaltentitel */
+  padding-bottom: 0.5rem;                   /* Abstand unterhalb des Titels */
+  margin-bottom: 1rem;                      /* Abstand zur nächsten Aufgabe */
+  font-weight: 600;                         /* Halb-fette Schrift */
+  color: #007bff;                           /* Blaue Schriftfarbe */
+}
+
+.kanban-list {
+  list-style: none;                         /* Keine Listenpunkte */
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;                             /* Füllt restliche Höhe der Spalte aus */
+  overflow-y: auto;                         /* Vertikales Scrollen bei vielen Aufgaben */
+}
+
+.kanban-item {
+  background: #e7f1ff;                      /* Hellblauer Hintergrund für jede Aufgabe */
+  border-radius: 6px;                       /* Abgerundete Ecken */
+  margin-bottom: 0.8rem;                    /* Abstand zwischen den Aufgaben */
+  padding: 0.6rem 0.8rem;                   /* Innenabstand */
+  cursor: grab;                             /* Cursor zeigt: Objekt kann gezogen werden */
+  display: flex;                            /* Inhalte horizontal anordnen */
+  justify-content: space-between;          /* Inhalte links und rechts verteilen */
+  align-items: center;                      /* Inhalte vertikal zentrieren */
+  user-select: none;                        /* Kein Text markieren während Drag & Drop */
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);   /* Leichter Schatteneffekt */
+  transition: background-color 0.2s ease;   /* Sanfter Übergang bei Farbwechsel */
+}
+
+.kanban-item:active {
+  cursor: grabbing;                         /* Cursor ändert sich beim Draggen */
+  background-color: #cce4ff;                /* Leicht dunklerer Hintergrund beim Ziehen */
+}
+
+.role-badge {
+  display: inline-block;                    /* Kleine Farbkugel wird inline angezeigt */
+  width: 14px;                              /* Breite */
+  height: 14px;                             /* Höhe */
+  border-radius: 50%;                       /* Kreisform */
+  margin-right: 6px;                        /* Abstand zum Text */
+  vertical-align: middle;                   /* Mitte an Text ausrichten */
+}
+
+.edit-btn,
+.delete-btn {
+  cursor: pointer;                          /* Zeigt auf klickbare Icons */
+}
+
+.kanban-list::-webkit-scrollbar {
+  width: 6px;                               /* Breite der vertikalen Scrollbar */
+}
+
+.kanban-list::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 123, 255, 0.3); /* Farbe des Scrollbar-Balkens */
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .kanban-column {
+    flex: 1 0 100%;                         /* Spalte nimmt ganze Breite bei kleinen Displays ein */
+  }
+}
