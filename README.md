@@ -1,4 +1,4 @@
-# 🗂️ Scrum Kanban Board
+# Scrum Kanban Board
 
 Ein interaktives **Scrum-Kanban-Board** für effizientes Aufgabenmanagement in agilen Softwareprojekten.  
 Dieses Projekt wurde mit **HTML**, **CSS**, **JavaScript** und **Vue.js** entwickelt und bietet ein benutzerfreundliches Interface zur Verwaltung von **Nutzern**, **Rollen** und **Aufgaben**.
@@ -7,15 +7,15 @@ Dieses Projekt wurde mit **HTML**, **CSS**, **JavaScript** und **Vue.js** entwic
 
 ---
 
-## 🚀 Features
+## Features
 
-### 👥 Nutzerverwaltung
+### Nutzerverwaltung
 - **Teammitglieder hinzufügen** inkl. Namen & Rollen
 - Rollen: `Product Owner`, `Entwickler`, `Scrum Master`
 - Bearbeiten oder Löschen von Nutzern
 - Automatische **Farbkennzeichnung** pro Rolle
 
-### ✅ Aufgabenmanagement
+### Aufgabenmanagement
 - Aufgaben hinzufügen mit:
   - Titel / Beschreibung
   - Verantwortlichem Nutzer
@@ -23,19 +23,19 @@ Dieses Projekt wurde mit **HTML**, **CSS**, **JavaScript** und **Vue.js** entwic
 - Aufgaben bearbeiten oder löschen
 - Aufgabenstatus ändern via **Drag & Drop**
 
-### 🏷️ Statusspalten
+### Statusspalten
 - **Backlog** – Ideen und noch nicht geplante Aufgaben
 - **To Do** – Aufgaben im Sprint Backlog
 - **In Progress** – aktuell in Bearbeitung
 - **Code Review / Test** – Aufgaben in der Prüfung
 - **Done** – abgeschlossene Aufgaben
 
-### 💾 Lokale Speicherung
+### Lokale Speicherung
 - **LocalStorage**-Integration: Alle Daten (Nutzer & Aufgaben) bleiben auch nach dem Neuladen erhalten.
 
 ---
 
-## 🛠️ Technologien
+## Technologien
 
 - **HTML5** – Struktur und Markup
 - **CSS3** (inkl. Responsive Design & Bootstrap 5)
@@ -44,7 +44,7 @@ Dieses Projekt wurde mit **HTML**, **CSS**, **JavaScript** und **Vue.js** entwic
 
 ---
 
-## 📦 Installation & Nutzung
+## Installation & Nutzung
 
 ### 1. Projekt klonen
 ```bash
