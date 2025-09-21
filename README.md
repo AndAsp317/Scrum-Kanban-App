@@ -39,7 +39,7 @@ Dieses Projekt wurde mit **HTML**, **CSS**, **JavaScript** und **Vue.js** entwic
 
 - **HTML5** – Struktur und Markup
 - **CSS3** (inkl. Responsive Design & Bootstrap 5)
-- **JavaScript** (Vanilla + **Vue 3**)
+- **JavaScript** (Vue 3)
 - **LocalStorage API** zur Datenspeicherung
 
 ---
